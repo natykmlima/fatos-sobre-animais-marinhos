@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Fatos sobre Animais Marinhos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      display: flex;             /* ativa o Flexbox */
+    justify-content: center;   /* centraliza horizontalmente */
+    align-items: center;       /* centraliza verticalmente */
+    }
+
+    /* GIF de fundo */
+    .fundo-gif {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://dl.glitter-graphics.com/pub/148/148607tg6rggnb0l.gif');
+      z-index: -2; /* atrás do overlay e do conteúdo */
+    }
+
+    /* overlay escuro */
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7); /* 70% de escuro */
+      z-index: -1; /* atrás do conteúdo, mas na frente do GIF */
+    }
+
+    /* conteúdo em cima */
+    .conteudo {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 50px;
+      color: #fff;
+    }
+
+    button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: rgba(10, 50, 158, 0.5); /* botão semi-transparente */
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease; /* animação suave */
+}
+
+button:hover {
+  background-color: rgba(2, 0, 92, 0.8); /* escurece ao passar o mouse */
+  transform: scale(1.05); /* aumenta levemente */
+}
+
+    #fato {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="fundo-gif"></div>
+  <div class="overlay"></div>
+
+  <div class="conteudo">
+    <h1>Animais marinhos são muito legais.</h1>
+    <button onclick="mostrarFato()">Clique para um fato!</button>
+    <p id="fato"></p>
+  </div>
+
+  <script>
+    const fatos = [
+      "O polvo tem três corações.",
+      "As baleias jubarte cantam músicas que podem durar até 20 minutos.",
+      "Os cavalos-marinhos machos são os que engravidam.",
+      "As águas-vivas não têm cérebro nem coração.",
+      "O tubarão-baleia é o maior peixe do mundo.",
+      "Os pinguins podem beber água do mar, filtrando o sal",
+      "Os golfinhos têm nomes próprios e se chamam uns aos outros com assobios. :)",
+      "As tartarugas marinhas voltam à mesma praia onde nasceram para botar ovos.",
+      "Algumas espécies de lulas podem se camuflar mudando de cor instantaneamente.",
+      "O peixe-palhaço muda de sexo se a fêmea dominante morrer.",
+      "As estrelas-do-mar podem regenerar braços perdidos.",
+      "Os cavalos-marinhos nadam verticalmente, diferente da maioria dos peixes.",
+      "O cavalo-marinho é praticamente o único peixe que nada de forma vertical.",
+      "Os tubarões existem há mais de 400 milhões de anos, antes dos dinossauros e até mesmo das árvores.",
+      "As enguias elétricas podem gerar choques de até 600 volts.",
+      "O peixe-lua pode pesar mais de 2 toneladas.",
+      "Algumas espécies de medusa são praticamente imortais.",
+      "Os caranguejos podem andar de lado para se locomover mais rápido.",
+      "Os golfinhos dormem com metade do cérebro acordado.",
+      "A lula gigante pode ter olhos do tamanho de uma bola de basquete.",
+      "As conchas do náutilo têm uma espiral perfeita em proporção áurea.",
+      "O peixe-pedra é um dos peixes mais venenosos do mundo.",
+      "Os cavalos-marinhos usam a cauda para se agarrar às plantas marinhas.",
+      "As baleias azuis são os maiores animais que já existiram na Terra.",
+      "Os corais são animais, não plantas.",
+     "O peixe-diabo-do-mar macho fica \“grávido\” e carrega os filhotes.",
+     "O camarão-pistola dispara uma bolha de água que pode atordoar a presa.",
+     "Os peixes abissais podem produzir luz própria (bioluminescência).",
+     "A lula vampira-do-inferno tem um \"capa\" parecida com um manto.",
+      "Os tubarões podem detectar campos elétricos produzidos por outros animais.",
+      "O peixe-anjo pode viver por mais de 50 anos em aquários.",
+      "As orcas são na verdade o maior membro da família dos golfinhos.",
+      "Algumas espécies de peixes podem caminhar usando nadadeiras modificadas.",
+      "As baleias têm pulmões, não guelras, apesar de viverem no mar.",
+      "Os peixes-palhaço vivem em anêmonas e são imunes ao veneno delas.",
+      "O cavalo-marinho tem visão independente em cada olho.",
+      "O polvo pode abrir frascos com suas ventosas.",
+      "A água-viva imortal (Turritopsis dohrnii) pode reverter seu ciclo de vida.",
+      "Os caranguejos yeti vivem em fontes hidrotermais no fundo do oceano.",
+      "Os peixes-lua podem saltar fora da água, às vezes para se livrar de parasitas."
+    ];
+    let fatosDisponiveis = [...fatos];
+
+function mostrarFato() {
+  if (fatosDisponiveis.length === 0) {
+    fatosDisponiveis = [...fatos];
+  }
+
+  const indice = Math.floor(Math.random() * fatosDisponiveis.length);
+  const fatoEscolhido = fatosDisponiveis[indice];
+
+  document.getElementById("fato").textContent = fatoEscolhido;
+
+  fatosDisponiveis.splice(indice, 1);
+}
+    
+  </script>
+</body>
+</html>
